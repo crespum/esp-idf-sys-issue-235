@@ -14,7 +14,6 @@ opt-level = "z"
 
 [dependencies]
 esp-idf-sys = { version = "=0.33.2", features = ["binstart"] }
-sunrise = "1.0.0"
 
 [build-dependencies]
 embuild = "0.31.2"
