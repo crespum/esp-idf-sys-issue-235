@@ -1,10 +1,12 @@
+use esp_idf_sys::{self as _}; // If using the `binstart` feature of `esp-idf-sys`, always keep this module imported
+use sunrise;
+
 fn main() {
     // It is necessary to call this function once. Otherwise some patches to the runtime
     // implemented by esp-idf-sys might not link properly. See https://github.com/esp-rs/esp-idf-template/issues/71
-    esp_idf_svc::sys::link_patches();
+    esp_idf_sys::link_patches();
 
-    // Bind the log crate to the ESP Logging facilities
-    esp_idf_svc::log::EspLogger::initialize_default();
+    sunrise::sunrise_sunset(50.5, 50.5, 2022, 5, 3);
 
-    log::info!("Hello, world!");
+    println!("Hello, world!");
 }
